@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pheromone Fog — Web Demo (Static)</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>Pheromone Fog — Invisible Affect Field (Web Demo)</h1>
+    <p class="disclaimer">
+      This is a client-only prototype to <strong>demonstrate behavior modulation</strong>.
+      It does <em>not</em> call an LLM. NPCs never see "fog"; only this dev view can show it.
+    </p>
+  </header>
+
+  <main>
+    <section class="board">
+      <canvas id="field" width="640" height="640"></canvas>
+      <div class="controls">
+        <div class="row">
+          <button data-ev="shout">Shout</button>
+          <button data-ev="apology">Apology</button>
+          <button data-ev="music">Music</button>
+          <button id="burst">Random Burst</button>
+        </div>
+        <div class="row">
+          <label><input type="checkbox" id="overlay" checked/> Dev Overlay</label>
+          <label><input type="checkbox" id="det" /> Deterministic</label>
+          <button id="reset">Reset</button>
+        </div>
+        <div class="row stats">
+          <span id="statA">A: 0.00</span>
+          <span id="statP">P: 0.00</span>
+          <span id="statD">D: 0.00</span>
+          <span id="statV">V: 0.00</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>NPC Inspector</h2>
+      <p>Click an NPC dot to inspect.</p>
+      <div id="npcInfo">No NPC selected.</div>
+      <div id="dialogue"></div>
+    </section>
+  </main>
+
+  <footer>
+    <small>
+      Invisible runtime rule: fog is never referenced in NPC-visible text.
+      This demo uses a tiny local text generator to simulate style/sampler effects.
+    </small>
+  </footer>
+
+  <script src="seeded.js"></script>
+  <script src="demo.js"></script>
+</body>
+</html>
